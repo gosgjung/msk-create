@@ -1,0 +1,139 @@
+# MSK 생성
+
+### 참고자료
+
+- [AWS MSK(kafka) 실습 및 예제 코드, 장단점, 가격](https://blog.voidmainvoid.net/299)
+
+
+
+---
+
+### kafka 브로커 인스턴스 스펙에 따른 요금표
+
+> 참고: 
+>
+> - [Amazon MSK 요금](https://aws.amazon.com/ko/msk/pricing/)
+
+
+
+| 브로커 인스턴스   | vCPU | 메모리(GiB) | 시간당 요금 |
+| :---------------- | :--: | :---------: | :---------: |
+| kafka.t3.small    |  2   |      2      | 0.0569 USD  |
+| kafka.m5.large    |  2   |      8      |  0.258 USD  |
+| kafka.m5.xlarge   |  4   |     16      |  0.516 USD  |
+| kafka.m5.2xlarge  |  8   |     32      |  1.033 USD  |
+| kafka.m5.4xlarge  |  16  |     64      |  2.065 USD  |
+| kafka.m5.8xlarge  |  32  |     128     |  4.135 USD  |
+| kafka.m5.12xlarge |  48  |     192     |  6.195 USD  |
+| kafka.m5.16xlarge |  64  |     256     |  8.269 USD  |
+| kafka.m5.24xlarge |  96  |     384     |  12.39 USD  |
+
+이 외 기타 참고자료
+
+> -  [Amazon MSK 크기 조정 및 요금](https://docs.aws.amazon.com/console/msk/instancetype-best-practices)
+> - [MSK Sizing and Pricing](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdy7oqpxkwhskb.cloudfront.net%2FMSK_Sizing_Pricing.xlsx&wdOrigin=BROWSELINK)
+
+
+
+
+
+---
+
+### 준비물
+
+- VPC
+  - 이름 : MSK_SAMPLE_VPC
+  - IPv4 CIDR : 10.10.0.0/16
+- 서브넷
+  - broker1 / MSK_SAMPLE_VPC, ap-northeast-2a, 10.10.0.0/24 (IPv4 CIDR 블록)
+  - broker2 / MSK_SAMPLE_VPC, ap-northeast-2b, 10.10.0.0/24 (IPv4 CIDR 블록)
+  - broker3 / MSK_SAMPLE_VPC, ap-northeast-2c, 10.10.0.0/24 (IPv4 CIDR 블록)
+
+
+
+
+
+
+
+VPC는 아래와 같이 생성하고, SUBNET 각각은 위에 적어둔 대로 추가하자.
+
+![](./img/MSK-CREATION/1.png)
+
+
+
+서브넷 1, 이름을 broker1 로 지정
+
+![](./img/MSK-CREATION/SUBNET-1.png)
+
+서브넷 2, 이름을 broker2 로 지정
+
+![](./img/MSK-CREATION/SUBNET-2.png)
+
+서브넷 3, 이름을 broker3 로 지정
+
+![](./img/MSK-CREATION/SUBNET-3.png)
+
+
+
+
+
+
+
+---
+
+### 클러스터 생성
+
+---
+
+#### 단계 1. 클러스터 설정
+
+![](./img/MSK-CREATION/2.png)
+
+
+
+
+
+![](./img/MSK-CREATION/3.png)
+
+
+
+
+
+![](./img/MSK-CREATION/4.png)
+
+
+
+---
+
+#### 단계 2. 네트워킹
+
+![](./img/MSK-CREATION/5.png)
+
+
+
+![](./img/MSK-CREATION/6.png)
+
+
+
+---
+
+#### 단계 3. 보안
+
+![](./img/MSK-CREATION/7.png)
+
+
+
+---
+
+#### 단계 4. 모니터링 및 태그
+
+프로메테우스 모니터링을 추가하고 싶다면 추가한다.
+
+참고로 프로메테우스 모니터링을 추가하면 추가 비용이 발생한다.
+
+![](./img/MSK-CREATION/8.png)
+
+
+
+
+
