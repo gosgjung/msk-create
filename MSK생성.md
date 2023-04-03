@@ -46,8 +46,8 @@
   - IPv4 CIDR : 10.10.0.0/16
 - 서브넷
   - broker1 / MSK_SAMPLE_VPC, ap-northeast-2a, 10.10.0.0/24 (IPv4 CIDR 블록)
-  - broker2 / MSK_SAMPLE_VPC, ap-northeast-2b, 10.10.0.0/24 (IPv4 CIDR 블록)
-  - broker3 / MSK_SAMPLE_VPC, ap-northeast-2c, 10.10.0.0/24 (IPv4 CIDR 블록)
+  - broker2 / MSK_SAMPLE_VPC, ap-northeast-2b, 10.10.1.0/24 (IPv4 CIDR 블록)
+  - broker3 / MSK_SAMPLE_VPC, ap-northeast-2c, 10.10.2.0/24 (IPv4 CIDR 블록)
 
 
 
