@@ -1,8 +1,16 @@
 # MSK 생성
 
+개인 계정으로 해보는데 MSK 를 일단은 삭제를 해둔 상태다. MSK를 사용해본 소감은 옛날에 RabbitMQ 를 관리형으로 뚝딱 사용할 때에 비해서는 조금은 더 복잡하게 해야할게 많긴 하다는 느낌이 들었다. 비용 역시 RabbitMQ에 비해서는 조금 비싸다. 다만, RabbitMQ는 어디까지 읽었는지 이런 것에 대한 처리 방식이나 이벤트 트랜잭션(DB트랜잭션 아님.), 이벤트 오프셋 처리 등이 지원된다는 점 외에 여러가지 점들이 마음에 들었는데, 일단은 계속 스터디를 해나가면서 관리형 RabbitMQ 와 MSK 둘 중 어느것이 어느정도규모의 프로그램에 적합할지 스터디를 하는 과정이 될것 같다. 
+
+
+
 ### 참고자료
 
 - [AWS MSK(kafka) 실습 및 예제 코드, 장단점, 가격](https://blog.voidmainvoid.net/299)
+- [Amazon MSK - 보상 트랜잭션 예](https://sharplee7.tistory.com/151)
+  - zookeeper 에 접근하려면 애플리케이션 서버를 통해 접근해야 하는데, iam 계정을 통해 특정 bastion 서버를 통해 접근하는 방식을 많이 사용하는 것 같다. 
+  - 일단 이 문서를 더 자세히 봐야 겠다.
+
 
 
 
@@ -135,5 +143,22 @@ VPC는 아래와 같이 생성하고, SUBNET 각각은 위에 적어둔 대로 �
 
 
 
+### 로그 화면
+
+![](./img/MSK-CREATION/LOG-1.png)
+
+<br>
 
 
+
+### 상세정보 화면
+
+![](./img/MSK-CREATION/MSK-DETAIL-1.png)
+
+<br>
+
+
+
+![](./img/MSK-CREATION/MSK-DETAIL-2.png)
+
+<br>
